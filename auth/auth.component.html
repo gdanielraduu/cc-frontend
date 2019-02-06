@@ -1,0 +1,46 @@
+
+  <div class="container">
+    <div class="row ">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center"> {{title}} </h1>
+        <p class="text-center">
+            <a [routerLink]="'/login'" *ngIf="authType == 'register'"> Have an account ?</a>
+            <a [routerLink]="'/register'" *ngIf="authType == 'login'"> Need an account ?</a>
+        </p>
+        <app-list-errors [errorss]="errors"></app-list-errors>
+        <form [formGroup]="authForm" class="form-control-lg" (ngSubmit)="submitForm()">
+
+            <fieldset class="form-group"> 
+              <input type="username"
+                class="form-control form-control-lg"
+                type="text"
+                placeholder="Username"
+                formControlName='username'
+                *ngIf="authType == 'register'" />
+            </fieldset>
+    
+            <fieldset class="form-group">
+              <input type="email"
+                class="form-control form-control-lg" 
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp" 
+                placeholder="Enter email"
+                formControlName="email">
+            </fieldset>
+        
+            <fieldset class="form-group">
+              <input type="password"
+                class="form-control form-control-lg" 
+                id="exampleInputPassword1" 
+                placeholder="Password"
+                formControlName="password">
+            </fieldset>
+        
+            <button type="submit" class="btn btn-lg btn-primary pull-xs-right">Submit</button>
+         
+        </form>
+  
+      </div>
+    </div>
+</div>
+
